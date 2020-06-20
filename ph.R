@@ -103,26 +103,28 @@ reac.table <- function(conc.titrant, conc.titrated, vol.titrated, ab, strength, 
 }
 
 
-reac.table <- reac.table(conc.titrant = 0.1, conc.titrated = 0.05, vol.titrated = 25, ab = "base", strength = "weak", pka =7)
-
-
-p.ph <- ggplot(data = reac.table, aes(x = vol.titrant, y = pH, colour = pH)) +
-  geom_point() +
-  theme_pander()
-
-p.ph
-
-
-p.n <- reac.table %>%
-  pivot_longer(cols = c(n.titrant, n.titrant.total, n.titrated, n.conj),
-               names_to = "species",
-               values_to = "n") %>%
-  ggplot(aes(x = vol.titrant, y = n, color = species)) +
-  geom_point() +
-  theme_pander() +
-  scale_colour_d3()
-
-p.n
+# reac.table <- reac.table(conc.titrant = 0.1, conc.titrated = 0.05, vol.titrated = 25, ab = "base", strength = "weak", pka =7)
+# 
+# 
+# p.ph <- ggplot(data = reac.table, aes(x = vol.titrant, y = pH, colour = pH)) +
+#   geom_point() +
+#   theme_pander() +
+#   theme(legend.position = 'none')
+# 
+# p.ph
+# 
+# 
+# p.n <- reac.table %>%
+#   pivot_longer(cols = c(n.titrant, n.titrant.total, n.titrated, n.conj),
+#                names_to = "species",
+#                values_to = "n") %>%
+#   ggplot(aes(x = vol.titrant, y = n, color = species)) +
+#   geom_point() +
+#   theme_pander() +
+#   scale_colour_d3(labels = c('Conjuguée (A/B faibles)', 'Titrante', 'Titrante (total ajoutée)', 'Titrée')) +
+#   labs(colour = 'Espèces')
+# 
+# p.n
 
 
 
